@@ -31,6 +31,12 @@
     
     
     
+    <tags>
+      
+      <tag>ABC总结</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -43,6 +49,12 @@
     <content type="html"><![CDATA[<p>蒟蒻的第一篇题解。<br><code>A + B Problem</code>是一个非常经典的问题，有很多种写法。比如最朴素的写法：  </p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span> a, b;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; a &gt;&gt; b;<br>    cout &lt;&lt; a + b;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><p>要注意不开<code>long long</code>见祖宗。<br>这里本蒟蒻提供一下自己想出的二分写法。<br><del>其实就是打模拟赛不会做之后乱写的</del><br>二分答案，左边界为$-2000000000$，右边界为$2000000000$，遍历$[l, r]$。其中，求出中间值$mid$，并判断大小。</p><p>code:</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span> a, b;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>    cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>    cin &gt;&gt; a &gt;&gt; b;<br>    <span class="hljs-type">long</span> <span class="hljs-type">long</span> l = <span class="hljs-number">-2e9</span>, r = <span class="hljs-number">2e9</span>, ans = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (l &lt;= r) &#123;<br>        <span class="hljs-type">long</span> <span class="hljs-type">long</span> mid = l + r &gt;&gt; <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (mid &gt;= a + b)<br>            r = mid - <span class="hljs-number">1</span>, ans = mid;<br>        <span class="hljs-keyword">else</span> l = mid + <span class="hljs-number">1</span>;<br>    &#125;<br>    cout &lt;&lt; ans;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>题解</tag>
+      
+    </tags>
     
   </entry>
   
