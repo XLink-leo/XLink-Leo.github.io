@@ -19,24 +19,22 @@
   <meta name="author" content="XLink">
   <meta name="keywords" content="">
   
-    <meta name="description" content="VSCode 是非常强大的编辑器。强大到这种程度：可见一斑。 不过，VSCode(下简称VSC)是出了名的难配，让很多新手们只能止步于Dev-C++这种垃圾IDE。不过这一篇，我将会让傻子都会配vsc。 Part 1 下载VSC从这里下载。你是什么系统就安哪个系统的VSC。应该不会有人不会安装吧如果这都不会那就去老老实实用Dev-C++去吧。 Part 2 MinGW + Path从这里下载 Mi">
+    <meta name="description" content="二分是一种很强大的算法，它能将$O(n)$的复杂度变为$O(\log_2 n)$。这使得它能运行$2^{100000000}$的数据。这篇文章是我对二分的一些理解。 洛谷 P2249 【深基13.例1】查找二分查找模板题，这里我们使用普通二分，而不使用lower_bound和upper_bound等STL容器，因为我不会在赛场上时如果紧张就会忘记怎么写，不保险。在这道题目中，$1 \leq n \">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VSCode">
-<meta property="og:url" content="https://xlink-leo.github.io/2025/12/03/VSCode/index.html">
+<meta property="og:title" content="二分笔记">
+<meta property="og:url" content="https://xlink-leo.github.io/2025/12/06/%E4%BA%8C%E5%88%86%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="XLink&#39;s Blog">
-<meta property="og:description" content="VSCode 是非常强大的编辑器。强大到这种程度：可见一斑。 不过，VSCode(下简称VSC)是出了名的难配，让很多新手们只能止步于Dev-C++这种垃圾IDE。不过这一篇，我将会让傻子都会配vsc。 Part 1 下载VSC从这里下载。你是什么系统就安哪个系统的VSC。应该不会有人不会安装吧如果这都不会那就去老老实实用Dev-C++去吧。 Part 2 MinGW + Path从这里下载 Mi">
+<meta property="og:description" content="二分是一种很强大的算法，它能将$O(n)$的复杂度变为$O(\log_2 n)$。这使得它能运行$2^{100000000}$的数据。这篇文章是我对二分的一些理解。 洛谷 P2249 【深基13.例1】查找二分查找模板题，这里我们使用普通二分，而不使用lower_bound和upper_bound等STL容器，因为我不会在赛场上时如果紧张就会忘记怎么写，不保险。在这道题目中，$1 \leq n \">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/ttrdt8hs.png">
-<meta property="article:published_time" content="2025-12-03T13:40:01.000Z">
-<meta property="article:modified_time" content="2025-12-03T13:40:57.354Z">
+<meta property="article:published_time" content="2025-12-06T09:07:49.000Z">
+<meta property="article:modified_time" content="2025-12-06T09:57:02.673Z">
 <meta property="article:author" content="XLink">
-<meta property="article:tag" content="编辑器">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/ttrdt8hs.png">
   
   
   
-  <title>VSCode - XLink&#39;s Blog</title>
+  <title>二分笔记 - XLink&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="VSCode"></span>
+            <span id="subtitle" data-typed-text="二分笔记"></span>
           
         </div>
 
@@ -213,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-03 21:40" pubdate>
-          2025年12月3日 晚上
+        <time datetime="2025-12-06 17:07" pubdate>
+          2025年12月6日 下午
         </time>
       </span>
     
@@ -225,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          726 字
+          740 字
         
       </span>
     
@@ -273,27 +271,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">VSCode</h1>
+            <h1 id="seo-header">二分笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <p>VSCode 是非常强大的编辑器。强大到这种程度：<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/ttrdt8hs.png" srcset="/img/loading.gif" lazyload><br>可见一斑。</p>
-<p>不过，VSCode(下简称VSC)是出了名的难配，让很多新手们只能止步于Dev-C++这种<del>垃圾</del>IDE。不过这一篇，我将会让傻子都会配vsc。</p>
-<h2 id="Part-1-下载VSC"><a href="#Part-1-下载VSC" class="headerlink" title="Part 1 下载VSC"></a>Part 1 下载VSC</h2><p>从<a target="_blank" rel="noopener" href="https://code.visualstudio.com/Download">这里</a>下载。你是什么系统就安哪个系统的VSC。<br><del>应该不会有人不会安装吧</del><br>如果这都不会那就去老老实实用Dev-C++去吧。</p>
-<h2 id="Part-2-MinGW-Path"><a href="#Part-2-MinGW-Path" class="headerlink" title="Part 2 MinGW + Path"></a>Part 2 MinGW + Path</h2><p>从<a target="_blank" rel="noopener" href="https://github.com/niXman/mingw-builds-binaries/releases">这里</a>下载 MinGW。不过现在GitHub的访问不太稳定，可能需要科学上网。安装完后点击Windows徽标，在搜索框中搜索<code>编辑系统环境变量</code>，在打开的窗口中选<code>环境变量(N)...</code>，在<strong>下面</strong>的方框中选<code>Path</code>这一项。点击<code>新建(N)</code>，将你的MinGW中的bin文件夹（例如<code>C:\mingw64\bin</code>）的地址填进去。之后连续点击3个<code>确定</code>即可。</p>
-<h2 id="Part-3-C-C-环境配置"><a href="#Part-3-C-C-环境配置" class="headerlink" title="Part 3 C&#x2F;C++ 环境配置"></a>Part 3 C&#x2F;C++ 环境配置</h2><p><strong>在VSC中，所有的文件及文件夹都不能以全角字符命名。</strong><br>首先，按<code>Ctrl + Shift + X</code>打开扩展栏，安装<code>Chinese</code>拓展。<br>然后就会弹出来一条蓝框，你点就是了。重启之后你会发现你的VSC变成了中文。<br>再<code>Ctrl + Shift + X</code>搜索这几个拓展并安装：<br><code>C/C++</code><br><code>vscode-luogu</code><br><code>Code Runner</code><br>之后，按下<code>Ctrl + Shift + P</code>唤醒搜索框，输入<code>C/C++: Edit Configurations(UI)</code>并点击。<br>在<code>编译器路径</code>这一项中填上你的编译器路径。将<code>IntelliSense模式</code>改为<code>windows-gcc-x64</code>。<br>在下面的语言标准中改为你想要的版本。<br>之后在拓展栏中右键<code>Code Runner</code>图标，选<code>设置</code>。<br>在打开的设置栏中勾选<code>Run In Terminal</code>和<code>Save File Before Run</code>。<br>再往上拉，找到<code>Executor Map</code>这一项，点击<code>在settings.json中编辑</code>，在找到的代码块中找到<code>cpp</code>这一行，填上你想要的编译参数。<br>之后再保存。</p>
-<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><p>作者特别喜欢<code>One Dark Pro</code>这个背景。按<code>Ctrl + Shift + X</code>搜索<code>One Dark Pro</code>拓展并安装即可。<br>作者推荐<code>Fira Code</code>这个字体。在<a target="_blank" rel="noopener" href="https://github.com/tonsky/FiraCode">这里</a>下载。<br>下载后打开<code>ttf</code>文件夹将里面的字体全部安装。<br>之后按<code>Ctrl + ,</code>打开设置，在最上面找到<code>打开设置(json)</code>这一项。点击，在弹出的代码下面添加这一段代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-string">&quot;terminal.integrated.fontFamily&quot;</span>: <span class="hljs-string">&quot;&#x27;Fira Code&#x27;, &#x27;Noto Sans CJK SC&#x27;&quot;</span>,<br><span class="hljs-string">&quot;editor.fontFamily&quot;</span>: <span class="hljs-string">&quot;&#x27;Fira Code&#x27;, &#x27;Noto Sans CJK SC&#x27;&quot;</span>,<br><span class="hljs-string">&quot;editor.fontLigatures&quot;</span>: <span class="hljs-string">&quot;&#x27;cv01&#x27;, &#x27;cv02&#x27;, &#x27;cv11&#x27;&quot;</span>,<br></code></pre></td></tr></table></figure>
-<p>如果是最后一行则不需要加后面的逗号。<br>恭喜你，你已经完成了VSC最基础的配置。<br><code>Markdown</code>可以看<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/qu4nmsxo">这篇文章</a>。<br>$\LaTeX$可以看<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/wm6a900g">这篇文章</a>。</p>
-<h2 id="推荐拓展"><a href="#推荐拓展" class="headerlink" title="推荐拓展"></a>推荐拓展</h2><ul>
-<li>Error Lens：显示错误信息，查错小助手（可能很烦）</li>
-<li>CPH-NG：像 CP Editor 一样的工具，比普通cph更高级，详见<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/8ix5zp4w">这篇文章</a>。</li>
-<li>vscode-icons：美化图标。</li>
-<li>vscode-pdf：在VSC中查看.pdf文件。</li>
-</ul>
-<h2 id="AD"><a href="#AD" class="headerlink" title="AD"></a>AD</h2><p><a href="https://xlink-leo.github.io/">https://xlink-leo.github.io/</a>蒟蒻的小博客，欢迎戳。</p>
-
+                <p>二分是一种很强大的算法，它能将$O(n)$的复杂度变为$O(\log_2 n)$。这使得它能运行$2^{100000000}$的数据。这篇文章是我对二分的一些理解。</p>
+<h3 id="洛谷-P2249-【深基13-例1】查找"><a href="#洛谷-P2249-【深基13-例1】查找" class="headerlink" title="洛谷 P2249 【深基13.例1】查找"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2249">洛谷 P2249 【深基13.例1】查找</a></h3><p>二分查找模板题，这里我们使用普通二分，而不使用<code>lower_bound</code>和<code>upper_bound</code>等STL容器，因为<del>我不会</del>在赛场上时如果紧张就会忘记怎么写，不保险。<br>在这道题目中，$1 \leq n \leq 10^6，1 \leq m \leq 10^5$，如果直接暴力枚举，就是$O(nm)$的复杂度，在此题中通过不了。那我们就要想别的方法。<br>想象一个游戏，让你猜数，给定数据范围为$1\leq ans \leq 100$，猜一个数后我会给出“小了”“大了”“一样”三种回答。<br>那此时最快能猜到的方式就是令$l，r$为左右边界，$mid$为中间值（$\frac{l+r}{2}$），在$l，r$中取$mid$。猜$mid$这个数，若大了，将$r$移动到$mid-1$的位置，若小了，将$l$移动到$mid+1$的位置。注意这个结论建立在“这个数列中具有单调不减的性质”这个条件下。可得出如此代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> n, m, a[<span class="hljs-number">1000005</span>], x;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>	cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>	cin &gt;&gt; n &gt;&gt; m;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>;i &lt;= n;i++)<br>		cin &gt;&gt; a[i];<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>;i &lt;= m;i++) &#123;<br>		cin &gt;&gt; x;<br>		<span class="hljs-type">int</span> l = <span class="hljs-number">1</span>, r = n, ans = <span class="hljs-number">-1</span>;<br>		<span class="hljs-keyword">while</span> (l &lt;= r) &#123;<br>			<span class="hljs-type">int</span> mid = l + r &gt;&gt; <span class="hljs-number">1</span>;<br>			<span class="hljs-keyword">if</span> (a[mid] &gt;= x)<br>				r = mid - <span class="hljs-number">1</span>, ans = mid;<br>			<span class="hljs-keyword">else</span> l = mid + <span class="hljs-number">1</span>;<br>		&#125;<br>		<span class="hljs-keyword">if</span> (a[ans] != x) cout &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>		<span class="hljs-keyword">else</span> cout &lt;&lt; ans &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>此为此题正解。这种类型的题被称为二分查找。</p>
+<h3 id="洛谷-P1873-COCI-2011-2012-5-EKO-砍树"><a href="#洛谷-P1873-COCI-2011-2012-5-EKO-砍树" class="headerlink" title="洛谷 P1873 [COCI 2011&#x2F;2012 #5] EKO &#x2F; 砍树"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1873">洛谷 P1873 [COCI 2011&#x2F;2012 #5] EKO &#x2F; 砍树</a></h3><p>二分的进阶版本。很明显这次不能用上次的思路了。那我们来思考一个问题：这个题目的答案具不具有单调性？<br>很明显具备。当他的锯片高度升高时，答案会降低，当锯片高度降低时，答案会增大。<br>那我们能不能转变思路，将二分的对象改变，变为锯片的高度呢？<br>显然可以。以$l$为答案的左边界，以$r$为答案的右边界，$mid$为中间值（$\frac{l+r}{2}$），当锯片在$mid$高度下，若木材总长度小于给定值，就将$l$移动到$mid+1$的位置，若木材总长度大于给定值，则将$r$移动到$mid-1$的位置。可得以下代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1e6</span> + <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> n, m, a[N];<br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">check</span><span class="hljs-params">(<span class="hljs-type">int</span> mid)</span> </span>&#123;<br>	<span class="hljs-type">long</span> <span class="hljs-type">long</span> sum = <span class="hljs-number">0</span>;<br>	<span class="hljs-comment">//[1, n]</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>;i &lt;= n;i++) &#123;<br>		<span class="hljs-keyword">if</span> (a[i] - mid &gt;= <span class="hljs-number">0</span>)<br>			sum += a[i] - mid;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (sum &gt;= m)<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>    cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>    cin &gt;&gt; n &gt;&gt; m;<br>	<span class="hljs-comment">//[1, n]</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>;i &lt;= n;i++)<br>        cin &gt;&gt; a[i];<br>    <span class="hljs-comment">//[1, 4e5]</span><br>    <span class="hljs-type">int</span> l = <span class="hljs-number">1</span>, r = <span class="hljs-number">4e5</span>, ans = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (l &lt;= r) &#123;<br>        <span class="hljs-type">int</span> mid = (l + r) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">check</span>(mid)) l = mid + <span class="hljs-number">1</span>, ans = mid;<br>        <span class="hljs-keyword">else</span> r = mid - <span class="hljs-number">1</span>;<br>    &#125;<br>    cout &lt;&lt; ans;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -305,7 +293,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" class="print-no-link">#编辑器</a>
+        <a href="/tags/%E7%AE%97%E6%B3%95/" class="print-no-link">#算法</a>
       
     </div>
   
@@ -317,8 +305,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>VSCode</div>
-      <div>https://xlink-leo.github.io/2025/12/03/VSCode/</div>
+      <div>二分笔记</div>
+      <div>https://xlink-leo.github.io/2025/12/06/二分笔记/</div>
     </div>
     <div class="license-meta">
       
@@ -330,7 +318,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月3日</div>
+          <div>2025年12月6日</div>
         </div>
       
       
@@ -362,18 +350,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/12/06/%E4%BA%8C%E5%88%86%E7%AC%94%E8%AE%B0/" title="二分笔记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">二分笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/11/29/ABC434/" title="ABC434">
-                        <span class="hidden-mobile">ABC434</span>
+                      <a href="/2025/12/03/VSCode/" title="VSCode">
+                        <span class="hidden-mobile">VSCode</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
